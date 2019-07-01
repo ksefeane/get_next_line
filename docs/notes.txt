@@ -1,0 +1,24 @@
+
+http://stackoverflow.com/questions/3501338/c-read-file-line-by-line
+http://stackoverflow.com/questions/2372813/reading-one-line-at-a-time-in-c
+http://stackoverflow.com/questions/9206091/going-through-a-text-file-line-by-line-in-c
+https://linux.die.net/man/3/getline
+https://www.youtube.com/watch?v=ZdGLsMfJMy0
+
+steps:
+main.
+1. main takes fd -> argc. 1 = fd 0, 2 = fd open(argv, O_RDONLY)?
+2. while get_next_line == 1, putstr(line), free(line)
+3. close fd?
+
+get_next_line.
+4.???
+
+
+vim.
+http://learnvimscriptthehardway.stevelosh.com/
+https://yanpritzker.com/learn-to-speak-vim-verbs-nouns-and-modifiers-d7bfed1f6b2d
+https://www.moolenaar.net/habits.html
+https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
+http://vimcasts.org/episodes/archive/
+https://www.systutorials.com/240159/vim-tutorial-beginners-vimtutor/
