@@ -1,0 +1,9 @@
+
+*.o
+*.a
+*.swp
+libft/libft.a
+libft/*.o
+a.out
+app
+
