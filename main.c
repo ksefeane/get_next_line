@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 12:41:07 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/05 16:14:57 by ksefeane         ###   ########.fr       */
+/*   Created: 2019/07/05 16:56:06 by ksefeane          #+#    #+#             */
+/*   Updated: 2019/07/05 17:01:53 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft/libft.h"
 
-# define BUFF_SIZE 10
-# include "libft/libft.h"
+int		main(void)
+{
+	char 	*a;
+	char 	*b;
+	size_t  n;
 
-int	get_next_line(const int fd, char **line);
-
-#endif
+	a = ft_strdup("hello");
+	b = ft_strchr(a, 'l');
+	ft_putendl(ft_itoa(b - a));
+	return (0);
+}
