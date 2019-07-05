@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 10:49:32 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/01 13:56:35 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/05 23:04:15 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		main(int ac, char **av)
 		fd = 1;
 		ft_reader(fd, ft_atoi(av[1]));
 	}
-*/	if (ac == 3 && ft_isdigit(av[2][0]))
+*/	if (ac == 3)
 	{
 		fd = open(av[1], O_RDONLY);
 		ft_reader(fd, ft_atoi(av[2]));
