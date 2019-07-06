@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 10:49:32 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/05 23:04:15 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/06 01:25:12 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ int		ft_reader(const int fd, int n)
 	i = 0;
 	while (i++ < n)
 	{
-		get_next_line(fd, &w);
-		ft_putendl(w);
-		ft_strdel(&w);
+		if (get_next_line(fd, &w) == 1)
+		{
+			ft_putendl(w);
+			if (w)
+				ft_strdel(&w);
+		}
 	}
 	return (1);
 }
