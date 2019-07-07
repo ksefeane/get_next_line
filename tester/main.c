@@ -21,14 +21,17 @@ int		ft_reader(const int fd, int n)
 
 	w = NULL;
 	i = 0;
-	while (i++ < n)
-	{
-		if (get_next_line(fd, &w) == 1)
+	if (n == 0)
+		while(get_next_line(fd, &w) != 0)
 		{
 			ft_putendl(w);
-			if (w)
-				ft_strdel(&w);
+			ft_strdel(&w);
 		}
+	while (i++ < n)
+	{
+		get_next_line(fd, &w);
+		ft_putendl(w);
+		ft_strdel(&w);
 	}
 	return (1);
 }
