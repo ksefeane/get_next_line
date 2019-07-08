@@ -5,55 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 13:03:02 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/08 16:26:58 by ksefeane         ###   ########.fr       */
+/*   Created: 2019/07/04 17:47:34 by ksefeane          #+#    #+#             */
+/*   Updated: 2019/07/08 17:05:48 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		read_cache(const int fd, char *cache)
-{
-	char	*h;
-	char	w[BUFF_SIZE + 1];
-	long	r;
-
-	ft_memset(w, '\0', BUFF_SIZE + 1);
-	h = cache;
-	r = read(fd, w, BUFF_SIZE);
-	cache = ft_strjoin(cache, w);
-	ft_strdel(&h);
-	if (r == -1 || r == 0)
-		return ((r == -1) ? -1 : 0);
-	else if (ft_strchr(w, '\n'))
-		return (1);
-	else
-		return (2);
-}
-
-int		save_line(char *c, char **line)
-{
-	long	e;
-	char	*h;
-
-	h = c;
-	e = ft_strchr(c, '\n') - c;
-	if (ft_strchr(c, '\n'))
-	{
-		*line = ft_strsub(c, 0, e);
-	}
-	else
-		*line = ft_strdup(c);
-}
-
 int		get_next_line(const int fd, char **line)
 {
 	static char	*c[1024];
-	static int	e;
+	char		w[BUFF_SIZE + 1];
+	char		*h;
+	long		e;
 
-	(!c[fd]) ? ft_strnew(0) && e = 2: 0;
-	(e == 1) ? e = 2 : 0;
-	while (e == 2)
-		e = read_cache(fd, c[fd]);
-	(c[fd]) ? save_line(c[fd], line) : 0;
+	if (fd < 0 || !line || (!c[fd] && !(c[fd] = ft_strnew(0))))
+		return (-1);
+	while ((e = read(fd, w, BUFF_SIZE)) > 0)
+	{
+		w[e] = '\0';	//
+		h = c[fd];
+		c[fd] = ft_strjoin(c[fd], w);
+		ft_strdel(&h);
+		if (ft_strchr(c[fd], '\n'))
+			break ;
+	}
+	if (e == -1 || (!*(h = c[fd]) && e < 1))	// &&
+		return (e == -1 ? -1 : 0);
+	(ft_strchr(c[fd], '\n')) ? e = (long)(ft_strchr(c[fd], '\n') - c[fd]) :
+		0;
+
+	*line = (ft_strchr(c[fd], '\n')) ? ft_strsub(c[fd], 0, e) :
+		ft_strdup(c[fd]);
+
+	c[fd] = (ft_strchr(c[fd], '\n')) ?
+		ft_strsub(c[fd], e + 1, (ft_strlen(c[fd]) - e)) : NULL; // ft_strdup(c[fd]);
+
+	ft_strdel(&h);
+	return (1);
 }
