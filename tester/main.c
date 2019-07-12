@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 10:49:32 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/06 01:25:12 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/12 13:43:17 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ int		main(int ac, char **av)
 		fd = open(av[1], O_RDONLY);
 		ft_reader(fd, ft_atoi(av[2]));
 	}
+	while (1);
 	return (0);
 }
