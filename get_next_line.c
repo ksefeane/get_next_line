@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 13:21:27 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/12 15:25:32 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/15 12:38:26 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,46 @@ static void	read_cache(const int fd, char **c)
 	}
 }
 
+static char	*less_cache(char *s, char c)
+{
+	char	*f;
+	long	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i - 1] == c)
+		{
+			f = ft_strsub(s, i, ft_strlen(s) - i);
+			return (f);
+		}
+		i++;
+	}
+	return (NULL);
+}
+
 static int	save_line(const int fd, char **line, char **c)
 {
 	char	*h;
-	char	n;
+	long	n;
 	long	e;
 
+	h = c[fd];
 	if (ft_strchr(c[fd], '\n')) 
 	{
-		e = ft_strchr(c[fd], '\n') - c[fd];
-		n = ft_strlen(c[fd]) - e;
-		*line = ft_strsub(c[fd], 0, e);
-		h = c[fd];
-//		c[fd] = ft_strsub(c[fd], e + 1, n); //strsub has leaks
-		c[fd] = ft_strdup("hey");
+		e = ft_strchr(h, '\n') - h;
+		n = ft_strlen(h) - e;
+		*line = ft_strsub(h, 0, e);
+		c[fd] = less_cache(c[fd], '\n');
 		free(h);
 		return (1);
 	}
-/*	else
+	else
 	{
 		*line = ft_strdup(c[fd]);
+		free(h);
 		return (0);
-	}*/
+	}
 	return (0);
 }
 

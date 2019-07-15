@@ -6,7 +6,7 @@
 #    By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/01 11:02:40 by ksefeane          #+#    #+#              #
-#    Updated: 2019/07/01 13:53:05 by ksefeane         ###   ########.fr        #
+#    Updated: 2019/07/15 10:00:43 by ksefeane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,9 @@ $(NAME): $(LIB)
 	@echo "app created"
 
 $(LIB):
+	@make -C ../libft
+
+a: 
 	@make re -C ../libft
 
 clean:
