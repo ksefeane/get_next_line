@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 13:21:27 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/17 15:35:28 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/17 18:38:44 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ static long	read_cache(const int fd, char **c)
 	char	*h;
 	long	e;
 
-	while ((e = read(fd, w, BUFF_SIZE)) > 0)
+	while (!ft_strchr(c[fd], '\n'))
 	{
+		if ((e = read(fd, w, BUFF_SIZE)) == 0)
+			return (0);
+		if (e < 0)
+			return (-1);
 		w[e] = '\0';
 		h = c[fd];
 		c[fd] = ft_strjoin(h, w);
@@ -27,7 +31,7 @@ static long	read_cache(const int fd, char **c)
 		if (ft_strchr(c[fd], '\n'))
 			break ;
 	}
-	return (e < 0 ? -1 : 0);
+	return (1);
 }
 
 static char	*less_cache(char *s, char c)

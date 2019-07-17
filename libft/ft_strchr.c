@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 14:26:29 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/08 16:08:07 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/17 17:59:25 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
+	size_t	len;
 
 	i = 0;
-	while (i <= ft_strlen(s))
+	len = ft_strlen(s);
+	while (i <= len)
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);

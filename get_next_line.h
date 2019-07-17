@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 12:41:07 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/15 15:25:31 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/17 18:40:51 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # define BUFF_SIZE 16
-# include "libft/libft.h"
+# include "./libft/libft.h"
 
 int	get_next_line(const int fd, char **line);
 
