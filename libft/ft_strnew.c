@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 12:15:14 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/06/06 09:59:25 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/17 15:25:00 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 char	*ft_strnew(size_t size)
 {
-	return (ft_memalloc(size + 1));
+	char	*f;
+
+	if (!(f = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	return (ft_memset(f, '\0', size + 1));
 }
