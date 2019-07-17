@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 10:49:32 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/15 15:34:25 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/17 14:12:49 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_reader(const int fd, int n)
 	w = NULL;
 	i = 0;
 	if (n == 0)
-		while(get_next_line(fd, &w) != 0)
+		while (get_next_line(fd, &w) != 0)
 		{
 			ft_putendl(w);
 			ft_strdel(&w);
@@ -41,17 +41,10 @@ int		main(int ac, char **av)
 {
 	int		fd;
 
-/*	if (ac == 2 && ft_isdigit(av[1][0]))
-	{
-		fd = 1;
-		ft_reader(fd, ft_atoi(av[1]));
-	}
-*/	if (ac == 3)
+	if (ac == 3)
 	{
 		fd = open(av[1], O_RDONLY);
 		ft_reader(fd, ft_atoi(av[2]));
 	}
-	while (1);
 	return (0);
-	sleep(60);
 }

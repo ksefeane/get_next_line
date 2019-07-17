@@ -6,7 +6,7 @@
 /*   By: ksefeane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 13:21:27 by ksefeane          #+#    #+#             */
-/*   Updated: 2019/07/15 16:20:50 by ksefeane         ###   ########.fr       */
+/*   Updated: 2019/07/17 14:07:35 by ksefeane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static long	read_cache(const int fd, char **c)
 
 	while (!ft_strchr(c[fd], '\n'))
 	{
-		if ((e = read(fd, w, BUFF_SIZE))  == 0)
+		if ((e = read(fd, w, BUFF_SIZE)) == 0)
 			return (0);
 		if (e < 0)
 			return (-1);
@@ -54,7 +54,7 @@ static int	save_line(const int fd, char **line, char **c)
 {
 	char	*h;
 	long	e;
-	
+
 	if (read_cache(fd, c) < 0)
 		return (-1);
 	h = c[fd];
